@@ -38,8 +38,9 @@ public class RekeningServiceImpl implements IRekeningService {
         ClientEntity clientData = clientRepository.findByClientid(clientid);
 
         rekeningDTO.setClientDTO(modelMapper.map(clientData, ClientDTO.class));
-
-//        RekeningEntity entity = modelMapper.map(rekeningDTO, RekeningEntity.class);
+        rekeningDTO.setActive(true);
+        rekeningDTO.setInterest(0.5);
+        rekeningDTO.setTax(2000);
 
         RekeningEntity storedData = rekeningRepository.save(modelMapper.map(rekeningDTO, RekeningEntity.class));
 

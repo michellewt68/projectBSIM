@@ -11,6 +11,7 @@ public class RekeningDTO implements Serializable {
     private long saldo;
     private long tax;
     private double interest;
+    private boolean isActive;
 
     private ClientDTO clientDTO;
 
@@ -68,5 +69,13 @@ public class RekeningDTO implements Serializable {
 
     public void setClientDTO(ClientDTO clientDTO) {
         this.clientDTO = clientDTO;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

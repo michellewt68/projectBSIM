@@ -23,8 +23,14 @@ public class RekeningEntity implements Serializable {
     @Column(nullable = false)
     private long saldo;
 
-    private final long tax = 2000 ;
-    private final double interest= 0.5;
+    @Column(nullable = false)
+    private long tax;
+
+    @Column(nullable = false)
+    private double interest;
+
+    @Column(name = "is_active")
+    private boolean isActive;
 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "clientid")
@@ -66,8 +72,16 @@ public class RekeningEntity implements Serializable {
         return tax;
     }
 
+    public void setTax(long tax) {
+        this.tax = tax;
+    }
+
     public double getInterest() {
         return interest;
+    }
+
+    public void setInterest(double interest) {
+        this.interest = interest;
     }
 
     public ClientEntity getClient() {
@@ -76,5 +90,13 @@ public class RekeningEntity implements Serializable {
 
     public void setClient(ClientEntity client) {
         this.client = client;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

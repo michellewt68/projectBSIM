@@ -6,6 +6,7 @@ public class RekeningResponse {
     private long saldo;
     private long tax;
     private double interest;
+    private boolean isActive;
 
     public String getRekeningid() {
         return rekeningid;
@@ -45,5 +46,13 @@ public class RekeningResponse {
 
     public void setInterest(double interest) {
         this.interest = interest;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }
