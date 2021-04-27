@@ -3,6 +3,8 @@ package org.bsim.project.io.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "clientTBL")
@@ -34,6 +36,9 @@ public class ClientEntity implements Serializable {
 
     @Column(nullable = false)
     private String clientmothername;
+
+    @OneToMany (mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<RekeningEntity> rekeningEntities = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -97,5 +102,13 @@ public class ClientEntity implements Serializable {
 
     public void setClientmothername(String clientmothername) {
         this.clientmothername = clientmothername;
+    }
+
+    public List<RekeningEntity> getRekeningEntities() {
+        return rekeningEntities;
+    }
+
+    public void setRekeningEntities(List<RekeningEntity> rekeningEntities) {
+        this.rekeningEntities = rekeningEntities;
     }
 }
