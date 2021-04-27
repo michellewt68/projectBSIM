@@ -55,4 +55,16 @@ public class RekeningController {
 
     }
 
+    @PutMapping(path = "/{clientid}/{rekeningid}", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public RekeningResponse updateRekeningbyRekeningid(@PathVariable String clientid, @PathVariable String rekeningid, @RequestBody RekeningRequest rekening){
+        ModelMapper mapper=new ModelMapper();
+
+        //req --> dto
+        RekeningDTO rekeningDTO=mapper.map(rekening, RekeningDTO.class);
+
+        RekeningDTO updateRekening= rekeningService.updateRekening(clientid, rekeningid, rekeningDTO);
+
+        return mapper.map(updateRekening, RekeningResponse.class);
+    }
+
 }

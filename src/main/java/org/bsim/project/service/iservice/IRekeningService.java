@@ -11,4 +11,7 @@ public interface IRekeningService {
     List<RekeningDTO> getListRekening(String clientid);
 
     RekeningDTO getRekeningbyRekeningid(String clientid, String rekeningid);
+
+    RekeningDTO updateRekening(String clientid, String rekeningid, RekeningDTO rekeningDTO);
+
 }

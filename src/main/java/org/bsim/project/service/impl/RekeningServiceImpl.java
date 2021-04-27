@@ -58,10 +58,25 @@ public class RekeningServiceImpl implements IRekeningService {
 
         ModelMapper modelMapper = new ModelMapper();
         ClientEntity clientEntity = clientRepository.findByClientid(clientid);
-        RekeningEntity rekeningEntity = rekeningRepository.findByRekeningid(rekeningid);
         if (clientEntity == null) return null;
+        RekeningEntity rekeningEntity = rekeningRepository.findByRekeningid(rekeningid);
         if (rekeningEntity == null) return null;
         return modelMapper.map(rekeningEntity, RekeningDTO.class);
+    }
+
+    @Override
+    public RekeningDTO updateRekening(String clientid, String rekeningid, RekeningDTO rekeningDTO) {
+        ModelMapper mapper=new ModelMapper();
+
+        RekeningEntity rekeningData= rekeningRepository.findByRekeningid(rekeningid);
+
+        if(rekeningData==null) return null;
+
+        rekeningData.setSaldo(rekeningDTO.getSaldo());
+
+        RekeningEntity updateRekening=rekeningRepository.save(rekeningData);
+
+        return mapper.map(updateRekening, RekeningDTO.class);
     }
 
 
