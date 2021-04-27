@@ -9,4 +9,6 @@ public interface IRekeningService {
 
 
     List<RekeningDTO> getListRekening(String clientid);
+
+    RekeningDTO getRekeningbyRekeningid(String clientid, String rekeningid);
 }

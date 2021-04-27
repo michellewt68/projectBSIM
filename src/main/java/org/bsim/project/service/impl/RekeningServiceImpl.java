@@ -53,5 +53,16 @@ public class RekeningServiceImpl implements IRekeningService {
         return new ModelMapper().map(entity,new TypeToken<List<RekeningDTO>>(){}.getType());
     }
 
+    @Override
+    public RekeningDTO getRekeningbyRekeningid(String clientid, String rekeningid) {
+
+        ModelMapper modelMapper = new ModelMapper();
+        ClientEntity clientEntity = clientRepository.findByClientid(clientid);
+        RekeningEntity rekeningEntity = rekeningRepository.findByRekeningid(rekeningid);
+        if (clientEntity == null) return null;
+        if (rekeningEntity == null) return null;
+        return modelMapper.map(rekeningEntity, RekeningDTO.class);
+    }
+
 
 }

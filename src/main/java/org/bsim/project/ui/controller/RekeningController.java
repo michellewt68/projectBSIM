@@ -21,6 +21,7 @@ public class RekeningController {
     @Autowired
     IRekeningService rekeningService;
 
+
     @PostMapping(path = "/{clientid}",
             consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -44,5 +45,14 @@ public class RekeningController {
         return value;
     }
 
+    @GetMapping(path = "/{clientid}/{rekeningid}",
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public RekeningResponse getRekeningByRekningId (@PathVariable String clientid,
+                                                    @PathVariable String rekeningid){
+        ModelMapper modelMapper = new ModelMapper();
+        RekeningDTO rekeningDTO= rekeningService.getRekeningbyRekeningid(clientid, rekeningid);
+        return modelMapper.map(rekeningDTO, RekeningResponse.class);
+
+    }
 
 }

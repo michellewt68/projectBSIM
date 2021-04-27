@@ -11,4 +11,6 @@ import java.util.List;
 public interface RekeningRepository extends JpaRepository<RekeningEntity, Long> {
 
     List<RekeningEntity> findAllByClient(ClientEntity cliententity);
+
+    RekeningEntity findByRekeningid(String rekeningid);
 }
