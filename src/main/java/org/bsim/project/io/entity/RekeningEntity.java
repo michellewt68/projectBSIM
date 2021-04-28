@@ -3,6 +3,7 @@ package org.bsim.project.io.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "RekeningTBL")
@@ -35,6 +36,9 @@ public class RekeningEntity implements Serializable {
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "clientid")
     private ClientEntity client;
+
+    @OneToMany(mappedBy = "rekening")
+    private List<DepositoEntity> depositoEntities;
 
     public long getId() {
         return id;
@@ -98,5 +102,13 @@ public class RekeningEntity implements Serializable {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public List<DepositoEntity> getDepositoEntities() {
+        return depositoEntities;
+    }
+
+    public void setDepositoEntities(List<DepositoEntity> depositoEntities) {
+        this.depositoEntities = depositoEntities;
     }
 }
