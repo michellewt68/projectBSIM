@@ -34,7 +34,7 @@ public class DepositoController {
 
     @GetMapping(path = "/{clientid}/{rekeningid}",produces = {MediaType.APPLICATION_JSON_VALUE})
     public List<DepositoResponse> displayAllDepositobyRekeningid(@PathVariable String clientid, @PathVariable String rekeningid){
-        List<DepositoDTO> depositoDTOList = iDepositoService.getListDeposito(rekeningid);
+        List<DepositoDTO> depositoDTOList = iDepositoService.getListDeposito(clientid, rekeningid);
         ModelMapper mapper = new ModelMapper();
 
         List<DepositoResponse> value = new ArrayList<>();

@@ -41,13 +41,15 @@ public class DepositoServiceImpl implements IDepositoService {
         depositoDTO.setInterestDeposito(4.2);
         depositoDTO.setTaxDeposito(10000);
 
+        rekeningData.setSaldo(rekeningData.getSaldo()-depositoDTO.getSaldoAwalPenempatan());
+
         DepositoEntity storeDepositoData=depositoRepository.save(mapper.map(depositoDTO, DepositoEntity.class));
 
         return mapper.map(storeDepositoData, DepositoDTO.class);
     }
 
     @Override
-    public List<DepositoDTO> getListDeposito(String rekeningid) {
+    public List<DepositoDTO> getListDeposito(String clientid, String rekeningid) {
         List<DepositoEntity> entity= depositoRepository.findAllByRekening(rekeningRepository.findByRekeningid(rekeningid));
         return new ModelMapper().map(entity,new TypeToken<List<DepositoDTO>>(){}.getType());
     }
