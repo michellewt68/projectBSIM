@@ -40,6 +40,17 @@ public class RekeningEntity implements Serializable {
     @OneToMany(mappedBy = "rekening")
     private List<DepositoEntity> depositoEntities;
 
+    @OneToMany(mappedBy = "rekening")
+    private List<TransaksiEntity> transaksiEntities;
+
+    public List<TransaksiEntity> getTransaksiEntities() {
+        return transaksiEntities;
+    }
+
+    public void setTransaksiEntities(List<TransaksiEntity> transaksiEntities) {
+        this.transaksiEntities = transaksiEntities;
+    }
+
     public long getId() {
         return id;
     }
