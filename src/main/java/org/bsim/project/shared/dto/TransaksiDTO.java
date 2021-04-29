@@ -12,6 +12,7 @@ public class TransaksiDTO implements Serializable {
     private String description;
     private long transactionprice;
     private LocalDate transactiondate;
+    private String transactiontype;
 
     private RekeningDTO rekeningDTO;
 
@@ -61,5 +62,13 @@ public class TransaksiDTO implements Serializable {
 
     public void setRekeningDTO(RekeningDTO rekeningDTO) {
         this.rekeningDTO = rekeningDTO;
+    }
+
+    public String getTransactiontype() {
+        return transactiontype;
+    }
+
+    public void setTransactiontype(String transactiontype) {
+        this.transactiontype = transactiontype;
     }
 }

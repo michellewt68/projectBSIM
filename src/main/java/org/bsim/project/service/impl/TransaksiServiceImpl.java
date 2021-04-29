@@ -46,6 +46,11 @@ public class TransaksiServiceImpl implements ITransaksiService {
         transaksiDTO.setRekeningDTO(modelMapper.map(rekeningData, RekeningDTO.class));
         transaksiDTO.setTransactiondate(LocalDate.now());
 
+        if(transaksiDTO.getTransactiontype().equalsIgnoreCase("income"))
+            rekeningData.setSaldo(rekeningData.getSaldo()+transaksiDTO.getTransactionprice());
+        else if(transaksiDTO.getTransactiontype().equalsIgnoreCase("outcome"))
+            rekeningData.setSaldo(rekeningData.getSaldo()-transaksiDTO.getTransactionprice());
+
         TransaksiEntity storeData = transaksiRepository.save(modelMapper.map(transaksiDTO, TransaksiEntity.class));
         return modelMapper.map(storeData, TransaksiDTO.class);
     }

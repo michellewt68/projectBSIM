@@ -6,6 +6,7 @@ public class TransaksiRequest {
 
     private String description;
     private long transactionprice;
+    private String transactiontype;
 
     public String getDescription() {
         return description;
@@ -23,4 +24,11 @@ public class TransaksiRequest {
         this.transactionprice = transactionprice;
     }
 
+    public String getTransactiontype() {
+        return transactiontype;
+    }
+
+    public void setTransactiontype(String transactiontype) {
+        this.transactiontype = transactiontype;
+    }
 }

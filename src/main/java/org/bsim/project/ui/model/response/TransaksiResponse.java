@@ -11,6 +11,7 @@ public class TransaksiResponse {
     private String description;
     private long transactionprice;
     private LocalDate transactiondate;
+    private String transactiontype;
 
     public String getTransactionid() {
         return transactionid;
@@ -42,5 +43,13 @@ public class TransaksiResponse {
 
     public void setTransactiondate(LocalDate transactiondate) {
         this.transactiondate = transactiondate;
+    }
+
+    public String getTransactiontype() {
+        return transactiontype;
+    }
+
+    public void setTransactiontype(String transactiontype) {
+        this.transactiontype = transactiontype;
     }
 }

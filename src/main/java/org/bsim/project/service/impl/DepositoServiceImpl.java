@@ -1,6 +1,5 @@
 package org.bsim.project.service.impl;
 
-import org.bsim.project.io.entity.ClientEntity;
 import org.bsim.project.io.entity.DepositoEntity;
 import org.bsim.project.io.entity.RekeningEntity;
 import org.bsim.project.io.repository.DepositoRepository;

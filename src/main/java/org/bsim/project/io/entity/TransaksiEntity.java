@@ -26,6 +26,9 @@ public class TransaksiEntity implements Serializable {
     @Column(nullable = false)
     private LocalDate transactiondate;
 
+    @Column(nullable = false)
+    private String transactiontype;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rekeningid")
     private RekeningEntity rekening;
@@ -68,6 +71,14 @@ public class TransaksiEntity implements Serializable {
 
     public void setTransactiondate(LocalDate transactiondate) {
         this.transactiondate = transactiondate;
+    }
+
+    public String getTransactiontype() {
+        return transactiontype;
+    }
+
+    public void setTransactiontype(String transactiontype) {
+        this.transactiontype = transactiontype;
     }
 
     public RekeningEntity getRekening() {
