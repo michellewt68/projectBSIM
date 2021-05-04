@@ -37,6 +37,9 @@ public class ClientEntity implements Serializable {
     @Column(nullable = false)
     private String clientmothername;
 
+    @Column(nullable = false)
+    private String clientpassword;
+
     @OneToMany (mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RekeningEntity> rekeningEntities = new ArrayList<>();
 
@@ -102,6 +105,14 @@ public class ClientEntity implements Serializable {
 
     public void setClientmothername(String clientmothername) {
         this.clientmothername = clientmothername;
+    }
+
+    public String getClientpassword() {
+        return clientpassword;
+    }
+
+    public void setClientpassword(String clientpassword) {
+        this.clientpassword = clientpassword;
     }
 
     public List<RekeningEntity> getRekeningEntities() {

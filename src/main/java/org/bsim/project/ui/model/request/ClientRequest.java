@@ -3,58 +3,67 @@ package org.bsim.project.ui.model.request;
 import java.time.LocalDate;
 
 public class ClientRequest {
-    private String clientname;
-    private String clientaddress;
-    private String clientphonenumber;
-    private LocalDate clientdob;
-    private long clientnik;
-    private String clientmothername;
+    private String clientName;
+    private String clientAddress;
+    private String clientPhonenumber;
+    private LocalDate clientDOB;
+    private long clientNIK;
+    private String clientMothername;
+    private String clientPassword;
 
-    public String getClientname() {
-        return clientname;
+    public String getClientName() {
+        return clientName;
     }
 
-    public void setClientname(String clientname) {
-        this.clientname = clientname;
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 
-    public String getClientaddress() {
-        return clientaddress;
+    public String getClientAddress() {
+        return clientAddress;
     }
 
-    public void setClientaddress(String clientaddress) {
-        this.clientaddress = clientaddress;
+    public void setClientAddress(String clientAddress) {
+        this.clientAddress = clientAddress;
     }
 
-    public String getClientphonenumber() {
-        return clientphonenumber;
+    public String getClientPhonenumber() {
+        return clientPhonenumber;
     }
 
-    public void setClientphonenumber(String clientphonenumber) {
-        this.clientphonenumber = clientphonenumber;
+    public void setClientPhonenumber(String clientPhonenumber) {
+        this.clientPhonenumber = clientPhonenumber;
     }
 
-    public LocalDate getClientdob() {
-        return clientdob;
+    public LocalDate getClientDOB() {
+        return clientDOB;
     }
 
-    public void setClientdob(LocalDate clientdob) {
-        this.clientdob = clientdob;
+    public void setClientDOB(LocalDate clientDOB) {
+        this.clientDOB = clientDOB;
     }
 
-    public long getClientnik() {
-        return clientnik;
+    public long getClientNIK() {
+        return clientNIK;
     }
 
-    public void setClientnik(long clientnik) {
-        this.clientnik = clientnik;
+    public void setClientNIK(long clientNIK) {
+        this.clientNIK = clientNIK;
     }
 
-    public String getClientmothername() {
-        return clientmothername;
+    public String getClientMothername() {
+        return clientMothername;
     }
 
-    public void setClientmothername(String clientmothername) {
-        this.clientmothername = clientmothername;
+    public void setClientMothername(String clientMothername) {
+        this.clientMothername = clientMothername;
+    }
+
+    public String getClientPassword() {
+        return clientPassword;
+    }
+
+    public void setClientPassword(String clientPassword) {
+        this.clientPassword = clientPassword;
     }
 }

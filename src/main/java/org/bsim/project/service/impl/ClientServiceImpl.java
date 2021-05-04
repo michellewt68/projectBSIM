@@ -7,7 +7,10 @@ import org.bsim.project.shared.dto.ClientDTO;
 import org.bsim.project.shared.utils.GenerateRandomPublicid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.security.SecureRandom;
 
 @Service
 public class ClientServiceImpl implements IClientService {
@@ -18,14 +21,21 @@ public class ClientServiceImpl implements IClientService {
     @Autowired
     ClientRepository clientRepository;
 
+    int strength = 10; // work factor of bcrypt
+    private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(strength, new SecureRandom());
+
+
     @Override
     public ClientDTO addNewClient(ClientDTO client) {
         ModelMapper mapper=new ModelMapper();
 
-        client.setClientid(generateRandomPublicid.generateUserId(8));
+        client.setClientId(generateRandomPublicid.generateUserId(8));
 
         //tf dri service --> repository
         ClientEntity entity= mapper.map(client, ClientEntity.class);
+
+        String encodedPassword = bCryptPasswordEncoder.encode(entity.getClientpassword());
+        entity.setClientpassword(encodedPassword);
 
         ClientEntity savedData= clientRepository.save(entity);
 
@@ -36,6 +46,7 @@ public class ClientServiceImpl implements IClientService {
     public ClientDTO getClientByClientid(String clientid) {
 
         ClientEntity getClient= clientRepository.findByClientid(clientid);
+
         if(getClient==null) return null;
 
         return new ModelMapper().map(getClient, ClientDTO.class);
@@ -48,11 +59,14 @@ public class ClientServiceImpl implements IClientService {
 
         if(clientData==null) return null;
 
-        clientData.setClientdob(clientDTO.getClientdob());
-        clientData.setClientaddress(clientDTO.getClientaddress());
-        clientData.setClientname(clientDTO.getClientname());
-        clientData.setClientphonenumber(clientDTO.getClientphonenumber());
-        clientData.setClientmothername(clientDTO.getClientmothername());
+        clientData.setClientdob(clientDTO.getClientDOB());
+        clientData.setClientaddress(clientDTO.getClientAddress());
+        clientData.setClientname(clientDTO.getClientName());
+        clientData.setClientphonenumber(clientDTO.getClientPhonenumber());
+        clientData.setClientmothername(clientDTO.getClientMothername());
+
+        String encodedPassword = bCryptPasswordEncoder.encode(clientData.getClientpassword());
+        clientData.setClientpassword(encodedPassword);
 
         ClientEntity updateClientData= clientRepository.save(clientData);
 

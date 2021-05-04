@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface DepositoRepository extends JpaRepository<DepositoEntity, Long> {
 
-
     List<DepositoEntity> findAllByRekening(RekeningEntity Rekeningid);
 
     DepositoEntity findByDepositoid(String depositoid);

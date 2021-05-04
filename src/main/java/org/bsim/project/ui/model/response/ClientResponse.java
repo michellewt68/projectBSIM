@@ -3,67 +3,58 @@ package org.bsim.project.ui.model.response;
 import java.time.LocalDate;
 
 public class ClientResponse {
-    private String clientid;
-    private String clientname;
-    private String clientaddress;
-    private String clientphonenumber;
-    private LocalDate clientdob;
-    private long clientnik;
-    private String clientmothername;
+    private String clientName;
+    private String clientAddress;
+    private String clientPhonenumber;
+    private LocalDate clientDOB;
+    private long clientNIK;
+    private String clientMothername;
 
-    public String getClientid() {
-        return clientid;
+    public String getClientName() {
+        return clientName;
     }
 
-    public void setClientid(String clientid) {
-        this.clientid = clientid;
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 
-    public String getClientname() {
-        return clientname;
+    public String getClientAddress() {
+        return clientAddress;
     }
 
-    public void setClientname(String clientname) {
-        this.clientname = clientname;
+    public void setClientAddress(String clientAddress) {
+        this.clientAddress = clientAddress;
     }
 
-    public String getClientaddress() {
-        return clientaddress;
+    public String getClientPhonenumber() {
+        return clientPhonenumber;
     }
 
-    public void setClientaddress(String clientaddress) {
-        this.clientaddress = clientaddress;
+    public void setClientPhonenumber(String clientPhonenumber) {
+        this.clientPhonenumber = clientPhonenumber;
     }
 
-    public String getClientphonenumber() {
-        return clientphonenumber;
+    public LocalDate getClientDOB() {
+        return clientDOB;
     }
 
-    public void setClientphonenumber(String clientphonenumber) {
-        this.clientphonenumber = clientphonenumber;
+    public void setClientDOB(LocalDate clientDOB) {
+        this.clientDOB = clientDOB;
     }
 
-    public LocalDate getClientdob() {
-        return clientdob;
+    public long getClientNIK() {
+        return clientNIK;
     }
 
-    public void setClientdob(LocalDate clientdob) {
-        this.clientdob = clientdob;
+    public void setClientNIK(long clientNIK) {
+        this.clientNIK = clientNIK;
     }
 
-    public long getClientnik() {
-        return clientnik;
+    public String getClientMothername() {
+        return clientMothername;
     }
 
-    public void setClientnik(long clientnik) {
-        this.clientnik = clientnik;
-    }
-
-    public String getClientmothername() {
-        return clientmothername;
-    }
-
-    public void setClientmothername(String clientmothername) {
-        this.clientmothername = clientmothername;
+    public void setClientMothername(String clientMothername) {
+        this.clientMothername = clientMothername;
     }
 }
